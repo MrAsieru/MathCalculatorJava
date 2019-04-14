@@ -17,12 +17,27 @@ public class Main {
 				for(int i = 0; i < Integer.parseInt(args[2]); i++) {
 					for(int j = 0; j < Integer.parseInt(args[3]); j++) {
 						M[i][j] = Integer.parseInt(args[c]);
-						System.out.println(i+" "+j+" "+args[c]);
 						c++;
 					}
 				}
+				Double result = matricesDeter(M, Integer.parseInt(args[2]), Integer.parseInt(args[3]));
+				if(Integer.parseInt(args[2]) == Integer.parseInt(args[2]) && Integer.parseInt(args[2]) == 2) {
+					System.out.println("\t    |\t"+M[0][0]+"\t"+M[0][1]+"\t|");
+					System.out.println("\t|M|=|\t"+M[1][0]+"\t"+M[1][1]+"\t|= "+result);
+				} else if(Integer.parseInt(args[2]) == Integer.parseInt(args[2]) && Integer.parseInt(args[2]) == 3) {
+					System.out.println("\t    |\t"+M[0][0]+"\t"+M[0][1]+"\t"+M[0][2]+"\t|");
+					System.out.println("\t|M|=|\t"+M[1][0]+"\t"+M[1][1]+"\t"+M[1][2]+"\t|= "+result);
+					System.out.println("\t    |\t"+M[2][0]+"\t"+M[2][1]+"\t"+M[2][2]+"\t|");
+				} else if(Integer.parseInt(args[2]) == Integer.parseInt(args[2]) && Integer.parseInt(args[2]) == 4) {
+					System.out.println("\t    |\t"+M[0][0]+"\t"+M[0][1]+"\t"+M[0][2]+"\t"+M[0][3]+"\t|");
+					System.out.println("\t|M|=|\t"+M[1][0]+"\t"+M[1][1]+"\t"+M[1][2]+"\t"+M[1][3]+"\t|= "+result);
+					System.out.println("\t    |\t"+M[2][0]+"\t"+M[2][1]+"\t"+M[2][2]+"\t"+M[2][3]+"\t|");
+					System.out.println("\t    |\t"+M[3][0]+"\t"+M[3][1]+"\t"+M[3][2]+"\t"+M[3][3]+"\t|");
+				}
+			} else if (args[1].equals("-i")) {
 				
-				System.out.println(matricesDeter(M, Integer.parseInt(args[2]), Integer.parseInt(args[3])));
+			} else {
+				
 			}
 		}
 	}
@@ -35,7 +50,6 @@ public class Main {
 			result = (double) (((M[0][0]*M[1][1]*M[2][2])+(M[0][1]*M[1][2]*M[2][0])+(M[1][0]*M[2][1]*M[0][2])) - ((M[0][2]*M[1][1]*M[2][0])+(M[0][1]*M[1][0]*M[2][2])+(M[1][2]*M[2][1]*M[0][0])));
 		} else if (f == c && f == 4) {
 			Double tot = 0.0;
-			System.out.println(Arrays.deepToString(M));
 			for(int i = 1; i < 5; i++) {
 				Integer[][] A = new Integer[3][3];
 				if(i == 1) {
