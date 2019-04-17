@@ -50,11 +50,13 @@ public class Matrices {
 	}
 	
 	static Integer[][] Invertida(Integer[][] M) {
-		if(Determinante(M) != 0) {
-			
-		} else {
-			return null;	
-		}
+		if(M[0].length == M[1].length && M[1].length == 3) {
+			if(Determinante(M, 3, 3) != 0) {
+				return M/Determinante(M, 3, 3);
+			} else {
+				return null;	
+			}
+		}		
 	}
 	
 	static Integer[][] Adjunta(Integer[][] M) {
