@@ -4,11 +4,10 @@ import java.util.Arrays;
 public class Main {
 	public static void main (String[] args) {
 		if(args[0].equals("-h")) {
-			System.out.println("Math Calculator");
-			System.out.println("-m : Matrices");
+			Ayuda(1);
 		} else if(args[0].equals("-m")) {
 			if(args[1].equals("-h")) {
-				System.out.println("-d : Determinante max 4x4 Ex. -m -d <filas> <columnas> (a11) (a12) (a13) ... (afc)");
+				Ayuda(2);
 			} else if(args[1].equals("-d")) {
 				Integer[][] M = new Integer[Integer.parseInt(args[2])] [Integer.parseInt(args[3])];
 				
@@ -37,7 +36,23 @@ public class Main {
 			} else if (args[1].equals("-i")) {
 				
 			} else {
-				
+				System.out.println("-d : Determinante max 4x4 Ex. -m -d <filas> <columnas> (a11) (a12) (a13) ... (afc)");
+			}
+		}
+		
+		static void Ayuda (Integer i){
+			switch(i) {
+				case 1:
+					System.out.println("Math Calculator help:");
+					System.out.println("-m : Matrices");
+					break;
+				case 2:
+					System.out.println("-d : Determinante max 4x4 Ex. -m -d <filas> <columnas> (a11) (a12) (a13) ... (afc) \n"+
+						   "-i : Matriz invertida 3x3 Ex -m -i (a11) (a12) (a13) ... (afc)");
+					break;
+				case 3:
+					break;
+					
 			}
 		}
 	}
