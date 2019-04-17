@@ -20,7 +20,7 @@ public class Main {
 						c++;
 					}
 				}
-				Double result = matricesDeter(M, Integer.parseInt(args[2]), Integer.parseInt(args[3]));
+				Double result = Matrices.matricesDeter(M, Integer.parseInt(args[2]), Integer.parseInt(args[3]));
 				if(Integer.parseInt(args[2]) == Integer.parseInt(args[2]) && Integer.parseInt(args[2]) == 2) {
 					System.out.println("\t    |\t"+M[0][0]+"\t"+M[0][1]+"\t|");
 					System.out.println("\t|M|=|\t"+M[1][0]+"\t"+M[1][1]+"\t|= "+result);
