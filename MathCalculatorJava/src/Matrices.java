@@ -2,7 +2,7 @@ public class Matrices {
   public static void Matrices(){ 
   }
   
-  static Double matricesDeter(Integer[][] M, Integer f, Integer c) {
+  static Double Determinante(Integer[][] M, Integer f, Integer c) {
 		Double result = 0.0;
 		if(f== c && f == 2) {
 			result = (double) ((M[0][0]*M[1][1]) - (M[0][1]*M[1][0]));
@@ -42,10 +42,39 @@ public class Matrices {
 					A = C;
 				}
 				
-				tot = tot + Math.pow(-1, i+1)*M[i-1][0]*matricesDeter(A, 3, 3);
+				tot = tot + Math.pow(-1, i+1)*M[i-1][0]*Determinante(A, 3, 3);
 			}
 			result = tot;
 		}
 		return result;
+	}
+	
+	static Integer[][] Invertida(Integer[][] M) {
+		if(Determinante(M) != 0) {
+			
+		} else {
+			return null;	
+		}
+	}
+	
+	static Integer[][] Adjunta(Integer[][] M) {
+		Integer[][] A = Transpuesta(M);
+		if(M[0].length == M[1].length && M[1].length == 3) {
+			return Integer[][] B = {
+				{Determinante(Integer[][] {{M[1][1], M[1][2]}, {M[2][1], M[2][2]}}, 2, 2), -Determinante(Integer[][] {{M[0][1], M[0][2]}, {M[2][1], M[2][2]}}, 2, 2), Determinante(Integer[][] {{M[0][1], M[0][2]}, {M[1][1], M[1][2]}}, 2, 2)},
+				{{-Determinante(Integer[][] {{M[0][1], M[0][2]}, {M[2][1], M[2][2]}}, 2, 2), Determinante(Integer[][] {{M[0][0], M[0][2]}, {M[2][0], M[2][2]}}, 2, 2), -Determinante(Integer[][] {{M[0][0], M[0][1]}, {M[2][0], M[2][1]}}, 2, 2)}},
+				{Determinante(Integer[][] {{M[0][1], M[0][2]}, {M[1][1], M[1][2]}}, 2, 2), -Determinante(Integer[][] {{M[0][0], M[0][2]}, {M[1][0], M[1][2]}}, 2, 2), Determinante(Integer[][] {{M[0][0], M[0][1]}, {M[1][0], M[1][1]}}, 2, 2)}
+			};
+		}
+	}
+	
+	static Integer[][] Transpuesta(Integer[][] M) {
+		if(M[0].length == M[1].length && M[1].length == 3){
+			return Integer[][] A = {
+			{M[0][0], M[1][0]}, M[2][0],
+			{M[0][1], M[1][1], M[2][1]},
+			{M[0][2], M[1][2], M[2][2]}
+		};
+		}		
 	}
 }
